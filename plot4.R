@@ -12,10 +12,11 @@ plot4<-function(f="household_power_consumption.csv") {
       with(consump, {
       
             plot(consump$Date, consump$Global_active_power, xlab="", ylab="Global Active Power(kilowatts)", type = "l")
-            plot(consump$Date, consump$Voltage,xlab="datatime",ylab="voltage")
+            plot(consump$Date, consump$Voltage,xlab="datatime",ylab="voltage",type="l")
             plot(consump$Date, consump$Sub_metering_1, col="black", xlab="", ylab="Energy sub metering",type = "l")    
             lines(consump$Date, consump$Sub_metering_2, col="red")
             lines(consump$Date, consump$Sub_metering_3, col="blue")
+            legend("topright", pch = 1, col = c("blue", "red", "green"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
             plot(consump$Date,consump$Global_reactive_power,xlab="datatime",ylab="Global_reactive_power",type ="l")
       })
      
