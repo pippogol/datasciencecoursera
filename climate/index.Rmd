@@ -1,0 +1,44 @@
+---
+title       : Climate change (1984 - 2008)
+subtitle    : Atmospheric concentrations of gas
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Description
+
+The data set climate_change.csv contains atmospheric concentration data of C02, CH4 and N2O in mmpv from 1984-2008. We built an interactive interface where use can select the gas and starting year for a bar plot that displays the concentration levels throughout the years.
+
+--- .
+
+## Data Set
+Example of data file
+```{r}
+data <- read.csv("climate_change.csv", sep=",", header=T)
+head(data,10)
+```
+
+--- .
+
+## Details
+
+Two user inputs are required: Gas and Year. The graph will be automatically configured based on user inputs.
+
+--- .
+
+## Bar plot
+
+The concentration in mmpv has been represented on a scale of 300 to 400 in order to demonstrate the incremental increases.
+
+--- .
+
+## Conclusion
+
+Concentration levels of both CO2 and NH4 have been increasing over the past 20 years
+
