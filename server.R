@@ -1,19 +1,24 @@
 library(shiny)
 
-data <- read.csv("climate_change.csv", sep=",", header=T)
+gerber = read.csv("gerber.csv")
+library(rpart)
+CART1 = rpart(voting ~ civicduty + hawthorne + self + neighbors, data=gerber, cp=0.0)
 
-shinyServer(function(input, output) {
-      
-      dataInput1 <- reactive({
-            subset(data, select=c(input$gas), subset=(substring(data$Date,1,4) >= input$year & substring(data$Date,1,4)<=2008))
-      })
-      
-      output$plot1 <- renderPlot({
+shinyServer(
+      function(input, output) {
             
-            ## Render a barplot
-            barplot(dataInput1()[,input$gas],
-                    main=paste("Concentration of ", input$gas, "Year",input$year,"- 2008"),
-                    ylab="Concentration in ppmv", ylim=c(300,400))
-      })
-      
-})
+            #userinput=reactive({userinput=c(input$c,input$h,input$s,input$n)})
+            
+            
+            #userinput=as.factor(userinput)
+            #userinput=as.numeric(userinput)-1
+            #output$v=renderPrint(as.integer(input$c)+as.integer(input$s))
+            
+            
+            output$v = renderPrint(unname(predict(CART1,newdata=data.frame(civicduty=as.integer(input$c),hawthorne=as.integer(input$h),self=as.integer(input$s),neighbors=as.integer(input$n)))))
+            
+            
+                                       
+            
+      }
+)
