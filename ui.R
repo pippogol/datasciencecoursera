@@ -3,11 +3,6 @@ shinyUI(pageWithSidebar(
       
       sidebarPanel( 
             h3('Predictors'), 
-            #selectInput("c", "You were reminded of the civic duty to vote", choices=c(TRUE, FALSE)),
-            #selectInput("h", "Your were informed that your vote will be examined by means of public records", choices=c(TRUE, FALSE)),
-            #selectInput("s", "You received the voting record of everyone in your household", choices=c(TRUE, FALSE)),
-            #selectInput("n", "You received the voting record of everyone in your neighborhood", choices=c(TRUE, FALSE)),
-            
             checkboxInput("c", "You were reminded of the civic duty to vote", FALSE),
             checkboxInput("h", "Your were informed that your vote will be examined by means of public records", FALSE),
             checkboxInput("s", "You received the voting record of everyone in your household", FALSE),
